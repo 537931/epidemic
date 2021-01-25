@@ -1,5 +1,5 @@
 # epidemic
-A simple model of infection spread.
+A simple model of a community infection spread.
 
 The model is based on the following assumptions:
 1. On the day 1 there is at least one infected person in the population.
