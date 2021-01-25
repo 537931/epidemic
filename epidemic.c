@@ -29,7 +29,7 @@ int main() {
 	long    i, j, n, m, day;
 	int     print_daily = 0;
 
-	if( NULL == ( population = calloc( psize, sizeof( long )))) {
+	if( NULL == ( population = calloc( psize, sizeof( short )))) {
 		fprintf( stderr, "calloc(): %d\n", errno );
 		return -1;
 	}
