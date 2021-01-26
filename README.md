@@ -16,3 +16,8 @@ The following initial parameters can be adjusted in the code:
 3. Number of contacts a sick person can make per day.
 4. Transmissivity rate.
 5. Mortality rate.
+
+The distance between the elements of the array may be concidered as a physical
+distance between people. Currently the model does not have any limits how far
+any person can reach in their contacts. This is as if anybody can travel across
+the community. A range can be added to limit the pearson's movement.
