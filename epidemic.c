@@ -23,6 +23,9 @@ int main() {
 	short   mortality = 5;
 	/* the number of sick people on day 1 */
 	long    sick = 1;
+	/* the maximum number of sick people on any given day */
+	long    peak = sick;
+	long    peak_day = 1;
 	long    immune = 0;
 	long    dead = 0;
 	long    healthy = psize - dead - sick - immune;
@@ -106,6 +109,11 @@ int main() {
 
 		healthy = psize - sick - immune - dead;
 
+		if( peak < sick ) {
+			peak = sick;
+			peak_day = day;
+		}
+
 		if( print_daily ) {
 			printf( "\014\n" );
 			printf( "day:      %ld\n", day );
@@ -126,6 +134,7 @@ int main() {
 		printf( "healthy:  %ld (%.1f%%)\n", healthy, healthy * 100. / psize );
 		printf( "immune:   %ld (%.1f%%)\n", immune, immune * 100. / psize );
 		printf( "dead:     %ld (%.1f%%)\n", dead, dead * 100. / psize );
+		printf( "peak:     %ld (%.1f%%) on day %ld\n", peak, peak * 100. / psize, peak_day );
 	}
 
 	return 0;
