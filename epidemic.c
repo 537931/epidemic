@@ -26,8 +26,9 @@ int main() {
 	long    immune = 0;
 	long    dead = 0;
 	long    healthy = psize - dead - sick - immune;
-	long    i, j, n, m, day;
-	int     print_daily = 0;
+
+	unsigned long    i, j, n, m, day;
+	int              print_daily = 0;
 
 	if( NULL == ( population = calloc( psize, sizeof( short )))) {
 		fprintf( stderr, "calloc(): %d\n", errno );
@@ -88,7 +89,7 @@ int main() {
 						 * to 32767. For larger population
 						 * simply multiply it.
 						 */
-						m = rand() * rand() % psize;
+						m = (unsigned long) ( rand() * rand()) % psize;
 
 						/* only healthy people may get infected */
 						if( ! population[ m ] ) {
@@ -114,7 +115,7 @@ int main() {
 			printf( "dead:     %ld (%.1f%%)\n", dead, dead * 100. / psize );
 			fflush( stdout );
 
-			delay( 200 );
+			usleep( 200000 );
 		}
 	}
 
